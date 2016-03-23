@@ -13,6 +13,9 @@ EXTRA_DIST = \
 
 DISTCHECK_CONFIGURE_FLAGS = --enable-documentation --enable-introspection
 
+includesdir = $(includedir)/hotodoc
+includes_HEADERS = $(NULL)
+
 ## pkg-config
 
 pkgconfigdir = $(libdir)/pkgconfig
@@ -20,7 +23,7 @@ pkgconfig_DATA = libhotodoc.pc
 
 ## libhotodoc
 
-includes_headers = hotodoc/hotodoc.h
+includes_HEADERS += hotodoc/hotodoc.h
 
 lib_LTLIBRARIES = libhotodoc.la
 
@@ -42,3 +45,5 @@ libhotodoc_la_CFLAGS = \
 		       $(GLIB_CFLAGS) \
 		       $(AM_CFLAGS) \
 		       $(NULL)
+
+### libhotodoc introspection
