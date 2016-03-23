@@ -18,7 +18,8 @@ AC_SUBST(LIBHOTODOC_VERSION,libhotodoc_version)
 LIBHOTODOC_MAJOR=libhotodoc_major
 AC_SUBST(LIBHOTODOC_MAJOR)
 
-AM_INIT_AUTOMAKE([-Wno-portability tar-ustar])
+dnl tar-ustar to let hotdoc search filenames be longer than 99 characters
+AM_INIT_AUTOMAKE([-Wno-portability tar-ustar subdir-objects])
 AM_SILENT_RULES([yes])
 
 AC_PROG_CC
@@ -47,7 +48,6 @@ AC_OUTPUT
 
 dnl Summary
 echo ""
-echo "libhotodoc "
-echo "--------------"
+echo "libhotodoc"
+echo "----------"
 echo "Introspection                  : ${found_introspection}"
-

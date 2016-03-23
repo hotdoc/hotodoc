@@ -9,3 +9,5 @@ configure
 libhotodoc.pc
 libtool
 m4/*
+.libs/*
+libhotodoc.la
