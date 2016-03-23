@@ -20,7 +20,7 @@
 
 #include "hotodoc.h"
 
-G_DEFINE_TYPE (HotodocFoo, hotodoc_foo, HOTODOC_TYPE_FOO);
+G_DEFINE_TYPE (HotodocFoo, hotodoc_foo, G_TYPE_OBJECT);
 
 static void
 hotodoc_foo_class_init(HotodocFooClass *klass)
@@ -28,6 +28,16 @@ hotodoc_foo_class_init(HotodocFooClass *klass)
 }
 
 static void
-hotodoc_foo_init(HotodocFoo *foo)
+hotodoc_foo_init(HotodocFoo *self)
 {
+}
+
+/**
+ * hotodoc_foo_do_foo:
+ * @self: instance
+ *
+ * Returns: a random int
+ */
+int hotodoc_foo_do_foo(HotodocFoo *self) {
+  return 42;
 }

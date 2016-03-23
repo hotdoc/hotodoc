@@ -47,3 +47,37 @@ libhotodoc_la_CFLAGS = \
 		       $(NULL)
 
 ### libhotodoc introspection
+
+-include $(INTROSPECTION_MAKEFILE)
+
+INTROSPECTION_GIRS =
+INTROSPECTION_SCANNER_ARGS = --add-include-path=$(srcdir)/hotodoc \
+			     --warn-all
+INTROSPECTION_COMPILER_ARGS = --includedir=$(srcdir)/hotodoc
+
+if HAVE_INTROSPECTION
+
+gir_sources = \
+	      hotodoc/hotodoc.h \
+	      hotodoc/hotodoc.c
+
+libraries = \
+	    libhotodoc.la
+
+
+Hotodoc-@LIBHOTODOC_MAJOR@.gir: $(libraries)
+Hotodoc_@LIBHOTODOC_MAJOR@_gir_INCLUDES = GLib-2.0 GObject-2.0
+Hotodoc_@LIBHOTODOC_MAJOR@_gir_LIBS = $(libraries)
+Hotodoc_@LIBHOTODOC_MAJOR@_gir_FILES = $(gir_sources)
+Hotodoc_@LIBHOTODOC_MAJOR@_gir_SCANNERFLAGS = $(WARN_SCANNERFLAGS)
+INTROSPECTION_GIRS += Hotodoc-@LIBHOTODOC_MAJOR@.gir
+
+girdir = $(datadir)/gir-1.0
+gir_DATA = $(INTROSPECTION_GIRS)
+
+typelibdir = $(libdir)/girepository-1.0/
+typelib_DATA = $(INTROSPECTION_GIRS:.gir=.typelib)
+
+CLEANFILES = $(gir_DATA) $(typelib_DATA)
+
+endif

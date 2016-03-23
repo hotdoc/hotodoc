@@ -56,6 +56,8 @@ struct _HotodocFooClass {
   GObjectClass parent_class;
 };
 
+int hotodoc_foo_do_foo(HotodocFoo *self);
+
 G_END_DECLS
 
 #endif
