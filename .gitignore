@@ -8,8 +8,11 @@ config/*
 configure
 libhotodoc.pc
 libtool
-m4/*
 .libs/*
+m4/*
+!m4/hotdoc.m4
 libhotodoc.la
 Hotodoc*.gir
 Hotodoc*.typelib
+libhotodoc*.tar.gz
+hotdoc-private*

@@ -81,3 +81,14 @@ typelib_DATA = $(INTROSPECTION_GIRS:.gir=.typelib)
 CLEANFILES = $(gir_DATA) $(typelib_DATA)
 
 endif
+
+### libhotodoc documentation
+
+if ENABLE_DOCUMENTATION
+
+HOTDOC_CONF_FILES = docs/reference/hotdoc.json\
+		    $(NULL)
+
+include $(top_srcdir)/hotdoc.mk
+
+endif

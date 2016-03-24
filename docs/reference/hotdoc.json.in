@@ -1,0 +1,18 @@
+{
+	"project_name": "hotodoc",
+	"project_version": "@LIBHOTODOC_VERSION@",
+	"index": "@srcdir@/markdown_files/index.markdown",
+	"gi_smart_index": true,
+	"c_sources": [
+		"@top_srcdir@/hotodoc/hotodoc.h",
+		"@top_srcdir@/hotodoc/hotodoc.c"
+	],
+	"gi_sources": [
+		"@top_builddir@/Hotodoc-@LIBHOTODOC_MAJOR@.gir"
+	],
+	"pkg_config_packages": [
+		"glib-2.0"
+	],
+	"output": "@top_builddir@/docs/reference/built_doc",
+	"devhelp_activate": true
+}

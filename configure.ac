@@ -37,12 +37,18 @@ PKG_CHECK_MODULES([GLIB], [$LIBHOTODOC_PACKAGES_PUBLIC_GLIB])
 dnl check for gobject-introspection
 GOBJECT_INTROSPECTION_CHECK([1.31.1])
 
+dnl check for hotdoc
+HOTDOC_CHECK([0.7], [c, gi])
+
 AX_COMPILER_FLAGS([], [], [m4_if(libhotodoc_nano, 0, [yes], [no])])
 
 AC_CONFIG_FILES([
     Makefile
     libhotodoc.pc
 ])
+
+AS_IF([test "x$enable_documentation" = "xyes"],
+      [AC_CONFIG_FILES([docs/reference/hotdoc.json])])
 
 AC_OUTPUT
 
@@ -51,3 +57,4 @@ echo ""
 echo "libhotodoc"
 echo "----------"
 echo "Introspection                  : ${found_introspection}"
+echo "Documentation                  : ${enable_documentation}"
